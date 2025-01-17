@@ -10464,6 +10464,7 @@ GameObject:
   - component: {fileID: 1368737208}
   - component: {fileID: 1368737207}
   - component: {fileID: 1368737206}
+  - component: {fileID: 1368737210}
   - component: {fileID: 1368737209}
   m_Layer: 0
   m_Name: Pressable
@@ -10579,7 +10580,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1294752046}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: StartGame
+        m_MethodName: StartGameServerRpc
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10589,6 +10590,31 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1368737210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1368737204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 3499078801
+  InScenePlacedSourceGlobalObjectIdHash: 0
+  DeferredDespawnTick: 0
+  Ownership: 1
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+  SyncOwnerTransformWhenParented: 1
+  AllowOwnerToParent: 0
 --- !u!4 &1370120551 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8d3771e3d5d67cc41b89c0aad68c14b0, type: 3}
@@ -12330,7 +12356,7 @@ Transform:
   m_GameObject: {fileID: 1599757461}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -206.243, y: 1.307, z: -231.509}
+  m_LocalPosition: {x: 49.9, y: 1.307, z: 2.7}
   m_LocalScale: {x: 1, y: 1, z: 0.17301}
   m_ConstrainProportionsScale: 0
   m_Children:

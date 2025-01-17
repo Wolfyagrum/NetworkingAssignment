@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class CollectionCube : NetworkBehaviour, IIntractable
 {
-
     public void Interact()
     {
         GameManager.instance.GivePointServerRpc();

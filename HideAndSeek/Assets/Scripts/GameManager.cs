@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Unity.Netcode;
+using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -43,20 +44,21 @@ public class GameManager : NetworkBehaviour
             if (!prepTimeFinished && timer.Value <= 0)
             {
                 //UnblindSeekerClientRpc();
-                Debug.Log("Ended prepetime");
+                Debug.Log("Ended prep time");
                 prepTimeFinished = true;
                 timer.Value = gameTime;
             }
         }
     }
-
-    private void MoveAllPlayers()
+    
+    public void MoveAllPlayers()
     {
         foreach (var player in NetworkManager.Singleton.ConnectedClients.Values)
         {
             Vector3 randomSpawn = GetRandomGameSpawn();
             // player.PlayerObject.transform.position = randomSpawn;
-            player.PlayerObject.GetComponent<Player>().TeleportClientRpc(randomSpawn);
+            player.PlayerObject.transform.position = randomSpawn;
+            Debug.Log(player.ClientId + " is owned by sever: " + player.PlayerObject.IsOwnedByServer);
         }
     }
 
@@ -65,9 +67,14 @@ public class GameManager : NetworkBehaviour
     {
         MoveAllPlayers();
     }
-[ServerRpc(RequireOwnership = false)]
+
+    [Rpc(SendTo.Server, Delivery = RpcDelivery.Reliable, RequireOwnership = false)]
     public void StartGameServerRpc()
     {
+        Debug.Log("Hi I am Sever?");
+        MoveAllPlayers();
+
+        return;
         if (!IsServer) return;
 
         if (!gameHasStarted)
